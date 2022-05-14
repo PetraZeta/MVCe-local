@@ -1,0 +1,21 @@
+---------------------------------------------------------FASE2-------------------------------------------------------------------------------
+-  arreglado el tema de movimiento en los formularios, por más que mire el código no veía el porqué, por lo que indague  el problema sólo podía ser el desbordamiento, puse:overflow: hidden en el section que contiene el código y arreglado.
+- Cambio en función encargada de pintar el catálogo:, ahora se pinta en el catalogo.php y se llama desde el index del controlador Catalogo 
+
+falta traer todos los productos x tienda o marca según se seleccione del submenú.
+tambien quiero cambiar el buscador, que muestre un select con categorias, otro por sexo… 
+Voy a intentar incorporar la API de google maps, para ello primero agregar coordenadas a la tabla tienda.
+
+También agrego dirección a tienda y descripción y web a la marca.
+- PROBLEMAS CON EL REGISTRO:
+tengo en modelo Usuario:
+
+este else es provisional
+ y en controlador Inicio:
+el registro lo hace correctamente pero si voy a http://localhost/MVCe-local/Inicio/agregarUsuario
+me muestra esto:
+
+en la base de datos se almacenan todos los datos correctamente, parece que no pilla ni el nombre ni  el mail y la clave falla pero si la pinta en el print_r
+Tampoco trae la variable de SESSION una vez que hace login, aunque si valida bien.
+(faltan validaciones y comprobar que las las dos claves sean iguales, quiero hacerlo con js)
+
