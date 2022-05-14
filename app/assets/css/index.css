@@ -1,0 +1,527 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+
+:root{
+  --amarillo1:#fff0a9;
+  --amarillo2:#ffe567;
+  --lila:#da97ff;
+  --lila0:#CDC3DA;
+  --rosa:#ffd5ec;
+  --azul1:#66edff;
+  --azul2:#a3ffff;
+  --lila1:#77469a;
+  --rosa1:#ab368f;
+  --gris1:#32322f;
+  --gris2: #444440;
+  --blanco1:#f8f9fc;
+  --blanco2:#fefffc;
+  --shadow: 0 8px 8px;
+  --color_shadow: #00000033;
+  --fuente1: 'Zen Antique Soft', serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+background-image: linear-gradient(to bottom right, var(--azul1), var(--lila));
+ font-family: 'Dosis', sans-serif;
+}
+/****************MENU VERTICAL FIJO*****************************/
+header {
+    background: var(--lila1);
+    z-index: 100;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 360px;
+    display: flex;
+    align-items: center;
+}
+
+
+header nav{
+
+}
+header nav ul{
+    list-style: none;
+    padding-left: 0;
+}
+header nav ul > li{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 2rem;
+ /*    position: relative; */
+}
+header nav ul li:hover{
+    background: var(--rosa1);
+    
+}
+header nav ul li a:hover{
+    color: var(--rosa1);
+    width: 360px;
+    
+}
+header nav ul li a{
+    color: var(--blanco1);
+    display: block;
+    text-decoration: none;
+    background: var(--lila);
+    width: 300px;
+    padding: 1rem 3rem;
+    border-radius: 0 10px 10px 0;
+}
+header nav ul li a svg{
+    margin-right: 1.5rem;
+}
+header nav ul li .children {
+   /*  display: none;  */  
+    position: absolute;
+    width: 360px;
+   /*  margin-left:0px; */
+}
+header nav ul li .children:hover {
+   /*  display: block; */  
+   
+}
+/* header nav ul li:hover .children li {
+    display: block;
+} */
+header nav ul li:hover .children li {
+    display: block;
+}
+header nav ul li .children li {
+    display: block;
+ /*    overflow: hidden; */
+    border-bottom: 1px solid var(--amarillo2);
+    display: none;
+}
+/* header nav ul li .children  > a {
+  background: var(--rosa1);
+  color: var(--blanco2);
+} */
+
+header nav ul li .children li a{
+	margin-bottom:-20px;
+    width: 100%;
+    background: var(--rosa1);
+    z-index: 9;
+
+}
+header nav ul li .children li a:hover{
+	
+    /* background: var(--rosa); */
+    color: var(--amarillo1);
+    border-bottom: 1px solid var(--amarillo2);
+}
+.buscar:hover{
+    width: 100%;
+    background: var(--rosa1);
+}
+.buscar li{
+    margin: auto;
+    height: 100%;
+    
+    
+}
+.buscar input{
+    font-size: 1.5rem;  
+    width:80%;
+    height:70px;
+    padding-left:15px;
+    transition:.6s ease-out;
+    float: left;
+
+}
+#busqueda  {
+    cursor: pointer;
+    float: left;
+    height: 70px;
+    width: 20%;
+}
+.respuesta{
+    padding-top: 2em;
+    margin-left: 350px;
+     flex-wrap: wrap;
+ position: absolute;
+  z-index: 10;
+    
+    display: flex;
+  
+    background-color: var(--amarillo1) ;
+    border-bottom: 1px solid var(--amarillo2);
+ 
+    opacity: .6;
+}
+.respuesta a{
+    text-decoration: none;
+    color: black;
+    font-size: 1.8rem ;
+    padding: 1em;
+    margin: 1em;
+    cursor: pointer;
+}
+.respuesta a:hover{
+    text-decoration: none;
+    background-color: var(--amarillo2);
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+/*aspa menu*/
+ .abrirSidebarMenu  {
+    transition: all 0.3s;
+    transform: translate(-50%,-50%) ;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    top: 22px;
+    right: 15px;
+    height: 22px;
+    width: 30px;
+
+}
+.abrirSidebarMenu .spinner {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: var(--blanco1);
+    margin-top: 6px;
+    transition: all 0.3s;
+}
+/*******Clases a activar con js********************/
+ .activarhorizontal {
+    opacity: 0;
+    margin-left: -30px; /*para que desaparezca hacia la izquierda*/
+}
+ .activardiagonal-1 {
+    /*para centrar las lineas y se crucen en el centro*/
+    transform: rotate(45deg) translate(7px,4px) ;
+    margin-left: 60px;
+}
+.activardiagonal-2 {
+    transform: rotate(-45deg) translate(8px,-6px);
+    margin-left: 60px;
+}  
+
+/*boton de abrir submenu + y -*/
+.abrirSubMenu {
+    transition: all 0.3s;
+    transform: translate(-50%,-50%) ;
+    cursor: pointer;  
+    z-index: 99;
+    height: .5em;
+    width: .5em;
+    position: relative;
+    margin-left:30px;
+    margin-right:0px;
+
+}
+.abrirSubMenu .spinner{
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--blanco1);
+    margin-top: 6px;
+    transition: all 0.2s;
+}
+
+.vertical{
+    transform: rotate(-90deg) translate(-8px, 0px);
+}
+
+.activarVertical{
+    opacity: 0;
+    margin-left: -30px; /*para que desaparezca hacia arriba*/
+}
+/*********************************/
+
+/*************CONTENEDOR PRINCIAL*********/
+main{
+    margin-left: 360px;
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(to bottom right, var(--azul1), var(--lila));
+    color: var(--blanco2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/************************************************/
+
+/*******Clases a activar con js********************/
+/*para recoger el menu al pulsar el aspa, se añadira la clase com js*/
+ .header_activar{
+    transform: translateX(-360px);
+    transition: transform 0.3s;
+} 
+.main_activar{
+    margin-left: 0px;
+}
+/**********************************************************************/
+
+/**********MEDIA QUERYS***************************/
+@media screen and (max-width: 1024px) {
+
+    header{
+        transform: translateX(-200px);
+        transition: transform 0.3s;
+    }
+    main{
+        margin-left: 150px;
+    }
+    nav li a svg{
+        float: right;
+        margin-right: 0;
+    }
+	header nav ul li a {
+		display: block;
+        padding-right: 0;
+	}
+}
+@media screen and (max-width: 768px) {
+    body {
+        padding-top:0px;
+    }
+    header{
+        transform: translateX(-250px);
+        height: 100vh;
+    }
+    main{
+        margin-left: 100px; 
+    } 
+    nav li a svg{
+        float: right;
+        margin-right: 0;
+    }
+    /*desaparecer las animaciones de inicio*/
+    .caja{
+        display: none;
+    }
+	header nav ul li a {
+		width: 320px;
+        padding-right: 0;
+	}
+	header nav ul li:hover .children {
+		display: none;
+	}
+	header nav ul li .children {
+		width: 100%;
+	}
+	header nav ul li .children li a {
+		margin-left:0px;
+	}
+	header nav ul li .bi .bi-plus {
+		float: right;
+	}
+    header nav ul li .children a img{
+        width: 50px;
+        height: 50px;
+    }
+}
+/****************************************/
+
+/***********CATALOGO********************/
+  #catalogo{
+    background-color: var(--lila0);
+  }
+  .cont_carta{
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;/*hacerlo responsive*/
+    justify-content: center;
+    background-color: var(--lila0);
+  }
+  .carta_padre{
+    margin: 2em;
+  }
+  .carta_padre:hover .carta{
+    transform: rotateY(180deg);
+  }
+  .carta{
+    width: 500px;
+    height: 720px;
+    margin: .5em;
+    padding: 1em ;
+    position: relative;
+    transform-style: preserve-3d;/*necesita estar tambien en ambas caras */
+    transition: all 600ms;
+  }
+  .carta_cara, .carta_cruz{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /*para que no se vea la parte de atras*/
+    transform-style: preserve-3d; 
+    border-radius: 10px;
+  }
+  /*cara*/
+  .carta img{
+    width: 500px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+  }
+  /*cruz*/
+  .carta_cruz{
+    transform: rotateY(180deg);
+    background-color: var(--lila0);
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .carta_cruz h1 {
+    color: var(--gris1);
+    font-size: 2rem;
+    margin: 2em;
+  }
+   .carta_cruz p{
+    color: var(--gris1);
+    font-size: 1.5rem;
+    margin: 2em;
+  }
+  .carta_cruz h5{
+  color: var(--gris1);
+    font-size: 1.2rem;
+  }
+  .carta_cruz a{
+      padding: 1.2em;
+      font-size: 1.5rem;
+      border-radius: 15px;
+   }
+/****************************************/
+
+/***********TINDA/MARCA*******************/
+  img{
+    width: 320px;
+  }
+  .tienda{
+    color: var(--blanco2);
+    margin: 1em;
+  }
+  .sitio{
+    margin-left: 1em;
+  }
+.map{
+    height: 300px;
+    width: 100%;
+  }
+/*****************************************/
+/********ANIMACIONES INICIO*************/
+.caja{
+  max-width: 100vh;            
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.burbujas{
+   top: 0;
+  right: 0;
+    width: 100%;
+    height: 100%;
+    position:absolute ;
+}
+.burbuja{
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, var(--azul1),var(--rosa1) );;
+    position: absolute;
+    opacity: .3;
+    overflow: hidden;
+}
+.burbuja:nth-child(odd){
+    background-image: linear-gradient(15deg, var(--lila0), var(--amarillo1)  );
+    animation: burbuja 30s linear infinite reverse; 
+}
+.burbuja:nth-child(even){
+    background-image: linear-gradient(15deg, var(--azul1),var(--amarillo1) ); 
+    animation: burbuja 20s linear infinite ; 
+}
+
+.burbuja:nth-child(1){
+    bottom: 450px;
+    width: 450px;
+    height:450px;
+    left: 30%;    
+    animation-delay: 1s;
+}
+.burbuja:nth-child(2){
+    bottom: 250px;
+    width: 250px;
+    height:250px;
+    left: 50%;
+    animation-delay: 6s;
+}
+.burbuja:nth-child(3){
+    bottom: 550px;
+    width: 550px;
+    height:550px;
+    left: 25%;
+    animation-delay: 11s;
+}
+.burbuja:nth-child(4){
+    bottom: 350px;
+    width: 350px;
+    height:350px;
+    left: 35%;
+    animation-delay: 16s;
+}
+.burbuja:nth-child(5){
+    bottom: 150px;
+    width: 150px;
+    height:150px;
+    left: 45%;    
+    animation-delay: 21s;
+}
+.burbuja:nth-child(6){
+    bottom: 50px;
+    width: 50px;
+    height:50px;
+    left: 55%;
+    animation-delay: 25s;
+}
+
+@keyframes burbuja {
+    0%{
+        bottom: 0px;
+        opacity: 0.2;
+    }
+    25%{
+        transform: translateX(-50px);
+         opacity: 0.4;
+    }
+    50%{
+        opacity: .5;
+        transform: translateX(50px); 
+        top: 0px;
+    }
+    75%{
+       transform: translateX(0px);
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateX(-50px);
+        bottom: 0px;
+    }
+    
+}
+/****************************************/
+/**********FORMulario*******************/
+.form-check-input:checked {
+    background-color: var(--lila1);
+    border-color: var(--lila);
+}
+.form_control{
+    transition: none;
+}
