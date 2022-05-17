@@ -1,8 +1,10 @@
 <?php
 
-class Catalogo extends Controller
+class Tienda extends Controller
 {
     private $productosM;
+    private $tiendasM;
+
 
     public function __construct()
     {
@@ -10,34 +12,46 @@ class Catalogo extends Controller
         $this->productosM = $this->load_model("ProductosM");
         $this->tiendasM = $this->load_model("TiendasM");
         $this->marcasM = $this->load_model("MarcasM");
-    }
-    public function index()
-    {
-        //traer todas las marcas y tiendas para pintar en submenus
-        $datos['tiendas'] = $this->tiendasM->pintarTodos();
-        $datos['marcas'] = $this->marcasM->pintarTodos();
 
-        //traer todos los articulos del catalogo
-        $datos['productos'] = $this->productosM->pintarTodos();
+  
+    }
+    public function index($parametros = [])
+    {
+        //RECIBE UN ID POR PARAMETRO DE TIENDA PARA MOSTRAR
+        $id=$parametros[0];
+        $datos['tiendas'] = $this->tiendasM->traerUno($id);
+        //traer todos los articulos de la tienda
+        $datos['productos'] = $this->tiendasM->traerProductos($id);
         //cargar vistas y datos
         $this->load_view("plantilla/header");
-        $this->load_view("plantilla/menu", $datos);
-        $this->load_view("catalogo",$datos);
+        $this->load_view("tienda", $datos);
+        $this->load_view("catalogo", $datos);
         $this->load_view("plantilla/footer");
     }
+    public function marca($parametros = [])
+    {
+        //RECIBE UN ID POR PARAMETRO DE TIENDA PARA MOSTRAR
+        $id = $parametros[0];
+        $datos['marcas'] = $this->marcasM->traerUno($id);
+        //traer todos los articulos de la tienda
+        $datos['productos'] = $this->marcasM->pintarProdMarca($id);
+        //cargar vistas y datos
+        $this->load_view("plantilla/header");
+        $this->load_view("marca", $datos);
+        $this->load_view("catalogo", $datos);
+        $this->load_view("plantilla/footer");
+    }
+
     public function pintarCatalogo() //traer articulos segun sea
     {
 
         /*TODO----> preguntar si viene algun filtro (nombre de tienda o marca) */
-    /*     $productos = $this->productosM->pintarTodos(); */
-   
-      
+        /*     $productos = $this->productosM->pintarTodos(); */
     }
 
-    public function pintarModal()
+    /*     public function pintarModal()
     {
-        $id= $_POST['id'];
-        $producto = $this->productosM->traerUno($id);
+        $producto = $this->productosM->traerUno($_POST['id']);
         print_r($_POST);
 
 
@@ -68,5 +82,5 @@ class Catalogo extends Controller
             </div>
         </div>
 <?php
-    }
+    } */
 }

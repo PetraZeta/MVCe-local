@@ -1,26 +1,26 @@
     <header>
         <!--   icono de menu que se convertira en aspa para cerrar el menu -->
-        <div class="abrirSidebarMenu">
+        <!--         <div class="abrirSidebarMenu">
 
             <div class="spinner diagonal-1"></div>
             <div class="spinner horizontal"></div>
             <div class="spinner diagonal-2"></div>
-        </div>
+        </div> -->
         <div class="tienda">
 
             <div class="sitio_logo">
-                <img src="../imagen/LaSinesiesia.png" alt="">
+                <img src="<?php echo BASE_URL; ?>app/assets/img/<?php echo $tiendas['logo']; ?>" alt="">
             </div>
             <!-- TODO-> revisar estilos -->
             <div class="sitio">
-                <h1>La Sinesiesia</h1>
+                <h1><?php echo $tiendas['nombre']; ?></h1>
                 <div class="sitio_cuerpo">
                     <p>
-                    <p>Telefono: <span class="telefono">68668594</span></p>
-                    <p>Dirección <span class="direccion">C/Esparragal, 5 Cáceres</span></p>
+                    <p>Telefono: <span class="telefono"><?php echo $tiendas['telefono']; ?></span></p>
+                    <p>Dirección <span class="direccion"><?php echo $tiendas['direccion']; ?></span></p>
                     <h3><span></span></h3>
                     </p>
-                    <a href="www.la sinesia.com">www.la sinesia.com</a>
+                    <a href="<?php echo $tiendas['web']; ?>"><?php echo $tiendas['web']; ?></a>
                 </div>
             </div>
 
@@ -36,11 +36,11 @@
             function iniciarMap() {
                 ///TODO---->traerse de la bbdd la lat y lgn
                 var coord = {
-                    lat: 39.4740966,
-                    lng: -6.3734509
+                    lat: <?php echo $tiendas['lat']; ?>,
+                    lng: <?php echo $tiendas['lng']; ?>
                 };
                 var map = new google.maps.Map(document.querySelector('.map'), {
-                    zoom: 10,
+                    zoom: 13,
                     center: coord
                 });
                 //posicion del marcador

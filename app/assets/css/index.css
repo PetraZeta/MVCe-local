@@ -407,9 +407,11 @@ main{
   .tienda{
     color: var(--blanco2);
     margin: 1em;
+    width: 300px;
   }
   .sitio{
     margin-left: 1em;
+    
   }
 .map{
     height: 300px;

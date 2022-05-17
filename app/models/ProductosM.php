@@ -12,7 +12,7 @@ class ProductosM extends Model{
     }
     public function traerUno($id)
     {
-        $sql = "SELECT * FROM producto WHERE id=$id"; //traer por id
+        $sql = "SELECT * FROM producto WHERE id=:id"; //traer por id
         $this->consultar($sql);
         $this->enlazar(":id", $id);
         return $this->fila();
@@ -25,5 +25,15 @@ class ProductosM extends Model{
         return $this->resultado();
         
     }
+    public function pintarProdTienda($id)
+    {
+
+        $sql = "SELECT * FROM producto WHERE tienda=:id";
+        $this->enlazar(":id", $id);
+        $this->consultar($sql);
+
+        return $this->resultado();
+    }
+
 }
 

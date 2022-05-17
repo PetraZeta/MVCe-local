@@ -18,7 +18,7 @@
 
 
 
-                                <form id="login" action="<?php print BASE_URL; ?>Inicio/verificaLogin" method="POST">
+                                <form id="login" action="<?php print BASE_URL; ?>Usuario/verificaLogin" method="POST">
 
                                     <div class="row py-3 ">
                                         <div class="col-12 col-md-8 pb-3 m-auto">
@@ -33,17 +33,17 @@
                                         <div class="row p-5 m-2">
 
                                             <div class="form-group pt-4 m-auto col-md-4">
-                                                <input type="submit" class="btn btn-dark btn-lg btn-block  " value="Entrar" name="login"><br>
+                                                <input type="submit" class="btn btn-dark btn-lg btn-block  " value="Entrar"><br>
                                                 <div class="pb-lg-2 p-2">
                                                     <input type="checkbox" name="recordar">
                                                     <label for="recordar" class="small text-muted py-2">Recordar</label>
                                                 </div>
                                             </div>
                                             <div class="pb-lg-2 my-2 col-md-6">
-                                                <a class="small text-muted " href="<?php print BASE_URL; ?>Inicio/olvido">¿Has olvidado tu contraseña?</a>
+                                                <a class="small text-muted " href="<?php print BASE_URL; ?>Usuario/olvido">¿Has olvidado tu contraseña?</a>
 
                                                 <p class=" small text-muted pb-lg-2 my-2" style="color: #393f81;">¿No tienes cuenta?
-                                                    <a class="big text-muted my-2" href="<?php print BASE_URL; ?>Inicio/registro">Darse de alta </a>
+                                                    <a class="big text-muted my-2" href="<?php print BASE_URL; ?>Usuario/registro">Darse de alta </a>
                                                 </p>
                                                 <p class=" small text-muted pb-lg-2 my-2" style="color: #393f81;">¿No quieres loguearte? <a href="<?php print BASE_URL; ?>Inicio/index" style="color: #393f81;">Volver</a></p>
                                             </div>
@@ -55,23 +55,14 @@
                                 </form>
                                 <div class="row">
                                     <?php
-                                    if (isset($error)) {
+                                    if (isset($msg)) { ?>
 
-                                        echo "<div class='alert alert-danger text-center'>";
+                                        <div class='alert alert-<?php echo $msg_type; ?>  text-center mb-0'>
 
-                                        echo "<strong>* " . $error . "</strong><br>";
+                                            <strong>* <?php echo $msg; ?> </strong><br>
 
-                                        echo "</div>";
-                                    }
-                                    if (isset($ok)) {
-
-                                        echo "<div class='alert alert-success text-center'>";
-
-                                        echo "<strong>* " . $ok . "</strong><br>";
-
-                                        echo "</div>";
-                                    }
-                                    ?>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
 

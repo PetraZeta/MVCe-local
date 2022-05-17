@@ -19,29 +19,22 @@
                         <div class="col-md-7 col-lg-8 d-flex  align-items-center">
                             <div class="card-body p-lg-3 text-black">
 
-                                <!-- fin header plantilla  (solo cambia la foto de la izquierda)-->
-                                
-                                
-                                
+
+
+
+
                                 <!-- MENSAJES DE ERROR TODO-> mejorar para que sirva para php y js-->
+
                                 <?php
-                                if (isset($error)) {
+                                if (isset($msg)) { ?>
 
-                                    echo "<div class='alert alert-danger text-center '>";
+                                    <div class='alert alert-<?php echo $msg_type; ?>  text-center '>
 
-                                    echo "<strong>* " . $error . "</strong><br>";
+                                        <strong>* <?php echo $msg; ?> </strong><br>
 
-                                    echo "</div>";
-                                }
-                                if (isset($ok)) {
+                                    </div>
+                                <?php } ?>
 
-                                    echo "<div class='alert alert-success text-center '>";
-
-                                    echo "<strong>* " . $ok . "</strong><br>";
-
-                                    echo "</div>";
-                                }
-                                ?>
                                 <!-- TODO----configurar mensaje de error/success -->
                                 <div class="alert alert-success text-center mx-5 ok" style="display:none;">
                                     <strong>* has seleccionado todos los avisos </strong>
@@ -51,26 +44,26 @@
 
                                 <!-- REGISTRO -->
 
-                                <form action="<?php echo BASE_URL; ?>Inicio/agregarUsuario" method="POST" name="frmRegistro">
+                                <form method="POST" name="frmRegistro" id="frmRegistro">
                                     <legend>
                                         <h1 class="fw-bold text-center py-2">REGISTRO</h1>
                                     </legend>
                                     <div class="row py-3 m-3">
 
                                         <div class="col-12 col-md-6 pb-3 ">
-                                            <input type="text" class="form-control" id="nombre" placeholder="NOMBRE" name="nombre" required autofocus>
+                                            <input type="text" class="form-control" id="nombre" placeholder="NOMBRE" name="nombre" maxlength="20" required autofocus>
                                         </div>
 
                                         <div class="col-12 col-md-6 pb-3">
-                                            <input type="password" class="form-control" id="clave" placeholder="CONTRASEÑA" name="clave" required>
+                                            <input type="password" class="form-control" id="clave" placeholder="CONTRASEÑA" name="clave" maxlength="20" required>
                                         </div>
 
                                         <div class="col-12 col-md-6 pb-3">
-                                            <input type="text" class="form-control" id="e-mail" placeholder="E-MAIL" name="email" required>
+                                            <input type="text" class="form-control" id="e-mail" placeholder="E-MAIL" name="email" maxlength="50" required>
                                         </div>
 
                                         <div class="col-12 col-md-6 pb-3">
-                                            <input type="password" class="form-control" id="clave1" placeholder="CONFIRMA CONTRASEÑA" name="clavebis" required>
+                                            <input type="password" class="form-control" id="clave1" placeholder="CONFIRMA CONTRASEÑA" name="clavebis" maxlength="20" required>
                                         </div>
 
                                     </div>
@@ -153,9 +146,25 @@
                 $("#preferencias input[type='checkbox']").prop('checked', false);
             }
         });
+        /**********************************AJAX************************** */
         //recoger datos del registro y enviar por ajax a la funcion del controlador
         $(document.frmRegistro).on("submit", function(e) {
             /*  TODO---> verificar que las claves son iguales */
+            e.preventDefault();
+
+            $.post(BASE_URL + 'Usuario/agregarUsuario', $("#frmRegistro").serialize(), function(res) {
+                alert('hola');
+                if (res == 1) {
+                    alert('exito');
+                    //$("#exito").delay(500).fadeIn("slow"); 
+                    // Si hemos tenido éxito, hacemos aparecer el div "exito" con un efecto fadeIn lento tras un delay de 0,5 segundos.
+                } else {
+                    alert('fracaso');
+
+                    //$("#fracaso").delay(500).fadeIn("slow"); 
+                    // Si no, lo mismo, pero haremos aparecer el div "fracaso"
+                }
+            });
         });
     </script>
 

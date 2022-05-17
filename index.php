@@ -1,4 +1,5 @@
 <?php
+if (session_id() === "") session_start();
 define("BASEPATH",true);
 require "system/config.php";
 // Incluir las clases del core

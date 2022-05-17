@@ -17,6 +17,13 @@ class TiendasM extends Model{
         $this->enlazar(":id", $id);
         return $this->fila();
     }
+    public function traerProductos($id)
+    {
+        $sql = "SELECT * FROM tienda INNER JOIN producto ON tienda.id=producto.id_tienda WHERE tienda.id=$id"; //traer por id
+        $this->consultar($sql);
+        $this->enlazar(":id", $id);
+        return $this->resultado();
+    }
 }
 
 ?>

@@ -28,8 +28,9 @@ class UsuariosM extends Model{
     function validarCorreo($email)
     {
         /* var_dump($email); */
-        $sql = "SELECT * FROM usuario WHERE email='" . $email . "'";
+        $sql = "SELECT * FROM usuario WHERE email==:usuario";
         $this->consultar($sql);
+        $this->enlazar(":usuario", $email);
         $this->fila();
         
         return ($this->cuenta()== 0) ? true : false;
@@ -38,7 +39,7 @@ class UsuariosM extends Model{
         if ($this->validarCorreo($datos["email"])) {
             print_r($datos);
             echo $datos['nombre'];
-            $sql = "INSERT INTO usuario VALUES(0,  :clave, :email ,:nombre,:novedades,:ofertas,:descuentos, 1)";
+            $sql = "INSERT INTO usuario VALUES(0,  :clave, ':email' ,:nombre,:novedades,:ofertas,:descuentos, 1)";
             $this->consultar($sql);
             $this->enlazar(":clave", $datos["clave"]);
             $this->enlazar(":email", $datos["email"]);

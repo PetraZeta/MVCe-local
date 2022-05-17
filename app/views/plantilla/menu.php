@@ -21,8 +21,8 @@
 			<?php
 			if (isset($_SESSION['usuario'])) { ?>
 				<!--    LOGoUT-->
-				<li><a href="<?php echo BASE_URL; ?>Inicio/logout">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
+				<li><a href="<?php echo BASE_URL; ?>Usuario/logout">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-dash" viewBox="0 0 16 16">
 							<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
 							<path fill-rule="evenodd" d="M11 7.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5z" />
 						</svg>
@@ -30,7 +30,7 @@
 				</li>
 			<?php	} else { ?>
 				<!--    LOGIN USUARIO -->
-				<li><a href="<?php echo BASE_URL; ?>Inicio/login">
+				<li><a href="<?php echo BASE_URL; ?>Usuario">
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-check" viewBox="0 0 16 16">
 							<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
 							<path fill-rule="evenodd" d="M15.854 5.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
@@ -47,15 +47,15 @@
 			<?php
 			if (isset($_SESSION['usuario'])) { ?>
 				<!--     FAVORITOS-->
-				<li><a href="<?php echo BASE_URL; ?>Inicio/">
-						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+				<li><a href="<?php echo BASE_URL; ?>Usuario/favoritos">
+						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
 							<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z" />
 						</svg>
 						Favoritos</a>
 				</li>
 			<?php	} else { ?>
 				<!--    REGISTRO USUARIO -->
-				<li><a href="<?php echo BASE_URL; ?>Inicio/registro">
+				<li><a href="<?php echo BASE_URL; ?>Usuario/registro">
 						<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-plus" viewBox="0 0 16 16">
 							<path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
 							<path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
@@ -89,7 +89,9 @@
 
 					<?php foreach ($tiendas as $t) {  ?>
 
-						<li><a href=""><?php echo $t["nombre"]; ?><span class=""></span>
+						<li><a href="<?php echo BASE_URL; ?>Tienda/index/<?php echo $t["id"]; ?>" class="tienda" data-id="<?php echo $t["id"]; ?>">
+								<?php echo $t["nombre"]; ?>
+
 							</a></li>
 					<?php } ?>
 
@@ -113,7 +115,7 @@
 				<ul class="children">
 					<?php foreach ($marcas as $m) {  ?>
 
-						<li><a href=""><?php echo $m["nombre"]; ?><span class=""></span>
+						<li><a href="<?php echo BASE_URL; ?>Tienda/marca/<?php echo $m["id"]; ?>"><?php echo $m["nombre"]; ?><span class=""></span>
 							</a></li>
 					<?php } ?>
 
@@ -148,9 +150,10 @@
 						<div>
 							<input type="search" class="form-control rounded search" placeholder="¿Que quieres buscar?" />
 							<button class="btn input-group-text border-0 " id="busqueda">
-								<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+								<!--EL BOTON DE BUSCAR NO LO NECESITO DE MOMENTO 
+									<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
 									<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-								</svg>
+								</svg> -->
 							</button>
 						</div>
 
@@ -167,97 +170,4 @@
 <div class="respuesta">
 	<!-- aqui pintaremos las coincidencias en tiempo real con ajax -->
 </div>
-<script>
-	$(document).ready(main);
-	//funcion que que abre y cierra los submenus y el buscador
-
-	function main() {
-		$('.menu li:has(ul)').click(function(e) {
-		/* 	e.preventDefault;
-			console.log($(this));
-			if ($(this).hasClass('activado')) {
-				$(this).removeClass('activado');
-				$(this).children('ul').slideUp();
-			} else {
-				$('.menu li ul').slideUp();
-				$('.menu li').removeClass('activado');
-				$(this).addClass('activado');
-				$(this).children('ul').slideDown();
-
-			} */
-			/* $(this).children('.children').slideToggle(); */
-			//acceder a su hijo abrir submenu y modificar las clases de su hijo spiner vertical
-		});
-		/* 	$('.buscar').click(function() {
-				$(this).children('.children').slideDown();
-
-			}); */
-		//buscador. 
-		if ($('.search').length) {
-			$('.search').on("keyup", function(e) {
-				consulta = $('.search').val();
-				$.ajax({
-					url: 'http://localhost/MVCe-local/Inicio/buscador',
-					type: "POST",
-					async: true,
-					data: 'q=' + consulta,
-					dataType: 'html',
-					success: function(data) {
-						$(".respuesta").empty();
-						$(".respuesta").append(data);
-					}
-					/*,
-												error: function(error) {
-													console.log(error);
-												} */
-				});
-			});
-			/*TODO----> hacer que desaparezca el div resultado si input value == '' ...	 */
-			/* } else if ($('.search').length==0) {
-				$(".respuesta").empty(); */
-		}
-		/*TODO--->click en algun p de la lista de sugerencias que abra el modal carta producto*/
-		$('.verProducto').click(function(e) {
-			const id = $(this).attr('data-id');
-			$.ajax({
-				url: 'http://localhost/MVCe-local/Catalogo/pintarModal',
-				type: "POST",
-				async: true,
-				data: {
-					id: id
-				},
-				dataType: 'html',
-				success: function(data) {
-
-				}
-				/*,
-											error: function(error) {
-												console.log(error);
-											} */
-			});
-		});
-
-	}
-
-
-	/*Animacion y funcionalidad del boton que abre el menu*/
-
-	document.querySelector(".abrirSidebarMenu").addEventListener("click", abrirMenu);
-
-	let diag1 = document.querySelector(".diagonal-1");
-	let hor = document.querySelector(".horizontal");
-	let diag2 = document.querySelector(".diagonal-2");
-	let menu = document.querySelector("header");
-	let main_act = document.querySelector("main");
-
-	function abrirMenu() {
-		//activar las clases que convierten las barras en aspa
-		diag1.classList.toggle("activardiagonal-1");
-		hor.classList.toggle("activarhorizontal");
-		diag2.classList.toggle("activardiagonal-2");
-		/*Desapaerer el menu y centrar el main*/
-		menu.classList.toggle("header_activar");
-		main_act.classList.toggle("main_activar");
-
-	}
-</script>
+<script src="<?php echo BASE_URL; ?>app/views/plantilla/menu.js"></script>
