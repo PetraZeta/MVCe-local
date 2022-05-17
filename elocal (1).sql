@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 14-05-2022 a las 11:51:21
+-- Tiempo de generación: 17-05-2022 a las 11:57:00
 -- Versión del servidor: 5.7.26
 -- Versión de PHP: 7.2.18
 
@@ -34,16 +34,20 @@ CREATE TABLE IF NOT EXISTS `favorito` (
   `usuario` int(10) NOT NULL,
   `producto` int(10) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `id_usuario` (`usuario`) USING BTREE,
+  KEY `id_usuario` (`usuario`),
   KEY `producto` (`producto`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `favorito`
 --
 
 INSERT INTO `favorito` (`id`, `usuario`, `producto`) VALUES
-(1, 1, 14);
+(1, 1, 14),
+(2, 4, 14),
+(3, 4, 16),
+(4, 4, 14),
+(5, 4, 16);
 
 -- --------------------------------------------------------
 
@@ -68,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `marca` (
 INSERT INTO `marca` (`id`, `nombre`, `foto`, `descripcion`, `web`) VALUES
 (1, 'Comunidad Slow Fashion', 'Logo-COMUNIDAD.png', 'En la última década se ha producido una oleada de cambios en la industria de la moda. Cada vez son más las marcas que rechazan los principios de la moda rápida y optan por un enfoque más sostenible en la confección de prendas.\r\n\r\nLa slow fashion se opone al modelo de moda rápida que surgió hace unos 20 años, en el que la ropa se abarató y los ciclos de las tendencias se aceleraron. Algunas marcas muy conocidas queman muchas toneladas de prendas no vendidas al año, a pesar de los continuos esfuerzos de sostenibilidad para cerrar el círculo de la moda, está claro que esta filosofía es una parte necesaria del movimiento en su conjunto.', 'https://asociacionrurex.com/proyectos/slow-fashion/comunidad/'),
 (2, 'Trapos Verdes', 'traposVerdes.png', 'La crisis provocada por el Covid19, según denuncia la ONG Human Rights Watch , decenas de marcas de ropa han cancelado sus pedidos sin asumir su responsabilidad financiera, incluso cuando sus trabajadoras ya tenían fabricados sus productos. En Bangladesh se calcula que más de un millón de personas han sido despedidas o cesadas temporalmente, gran parte de las cuales no han recibido sus salarios.\r\nEl impacto ambiental del sector textil y sus efectos sobre el cambio climático es un tema clave a tener mucho en cuenta. El algodón, por ejemplo, supone el 2,4% de la superficie del área cultivable en el mundo pero acumula el 25% de los insecticidas y el 10% de los pesticidas.', 'https://www.youtube.com/channel/UCRTAbpTcB3ny3AB465OSKdQ'),
-(3, 'GreenForest', 'greenForest.png', '¿Comprometido, responsable, empático, inconformista?\r\n\r\nSi has llegado hasta aquí es porque tenemos que conocernos.\r\n\r\nPero antes, déjame que intente adivinar algo sobre ti.\r\n\r\nTe preocupa la situación actual de la emergencia climática\r\nTodo lo que está en tu mano para revertir esta situación actúas rápidamente\r\nTe encanta hacer actividades al aire libre, conectar con las personas y con la naturaleza\r\nCuando vistes una prenda quieres sentirte cómodo con ella, le coges especial cariño y quieres que te acompañe en todas tus aventuras\r\nTe interesas por cómo ha sido fabricada, con qué materiales y si esa marca que te encanta es cercana, ya eres fijo en su comunidad\r\nSabes que las pequeñas acciones que haces hoy tendrán un impacto positivo en el mañana\r\nSi estas afirmaciones describen tu forma de pensar, quédate con nosotros que nos encantará conocerte mejor.\r\n\r\nTodos queremos cambiar el mundo, pero ¿por donde empezar?\r\n\r\nCada pequeño gesto, palabra o intención; cuenta a la hora de cambiar el mundo, sobre todo cambiar tu mundo y el de los que te rodean.\r\n\r\nAsí nace Green Forest con Joaquín y Clara. Joaquín al mando del diseño y la administración, es Ingeniero Industrial, un apasionado de la naturaleza y con una creencia firme y profunda de hacer las cosas de manera diferente. Y Clara detrás de las pantallas, al mando de las estrategias de marketing, preparación de pedidos para que te llegue lo más bonito posible y atención al cliente para resolver todas tus dudas. Una amante de la moda desde muy pequeña, estilista, escaparatista y directora de marketing en una Sastrería.\r\n\r\nCuando encuentras esa pieza que te falta en el puzzle nace Green Forest. Marca de Moda Sostenible con impacto positivo referente en España con el fin de propulsar la transparencia, trazabilidad y honestidad que la industria textil actual necesita.\r\n\r\n“ No se trata de vestirnos de una forma u otra, sino de repensar cómo nos vestimos”', 'https://greenforestwear.com');
+(3, 'GreenForest', 'greenForest.png', '¿Comprometido, responsable, empático, inconformista?\r\n\r\nCuando vistes una prenda quieres sentirte cómodo con ella, le coges especial cariño y quieres que te acompañe en todas tus aventuras\r\nTe interesas por cómo ha sido fabricada, con qué materiales y si esa marca que te encanta es cercana, ya eres fijo en su comunidad\r\nSabes que las pequeñas acciones que haces hoy tendrán un impacto positivo en el mañana\r\nSi estas afirmaciones describen tu forma de pensar, quédate con nosotros que nos encantará conocerte mejor.\r\n\r\nTodos queremos cambiar el mundo, pero ¿por donde empezar?\r\n\r\nCada pequeño gesto, palabra o intención; cuenta a la hora de cambiar el mundo, sobre todo cambiar tu mundo y el de los que te rodean.\r\n\r\nCuando encuentras esa pieza que te falta en el puzzle nace Green Forest. Marca de Moda Sostenible con impacto positivo referente en España con el fin de propulsar la transparencia, trazabilidad y honestidad que la industria textil actual necesita.\r\n\r\n“ No se trata de vestirnos de una forma u otra, sino de repensar cómo nos vestimos”', 'https://greenforestwear.com');
 
 -- --------------------------------------------------------
 
@@ -160,12 +164,12 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `clave` varchar(255) COLLATE utf8mb4_spanish_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_spanish_ci NOT NULL,
   `nombre` varchar(50) COLLATE utf8mb4_spanish_ci DEFAULT NULL,
-  `novedades` int(1) DEFAULT '1',
-  `ofertas` int(1) NOT NULL DEFAULT '1',
-  `descuentos` int(1) NOT NULL DEFAULT '1',
+  `novedades` int(1) DEFAULT NULL,
+  `ofertas` int(1) DEFAULT NULL,
+  `descuentos` int(1) DEFAULT NULL,
   `rol` int(1) NOT NULL COMMENT '0-admin 1-usuario',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
