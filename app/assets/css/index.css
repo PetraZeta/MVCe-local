@@ -1,33 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
 
-:root{
-  --amarillo1:#fff0a9;
-  --amarillo2:#ffe567;
-  --lila:#da97ff;
-  --lila0:#CDC3DA;
-  --rosa:#ffd5ec;
-  --azul1:#66edff;
-  --azul2:#a3ffff;
-  --lila1:#77469a;
-  --rosa1:#ab368f;
-  --gris1:#32322f;
-  --gris2: #444440;
-  --blanco1:#f8f9fc;
-  --blanco2:#fefffc;
-  --shadow: 0 8px 8px;
-  --color_shadow: #00000033;
-  --fuente1: 'Zen Antique Soft', serif;
-}
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body{
-background-image: linear-gradient(to bottom right, var(--azul1), var(--lila));
- font-family: 'Dosis', sans-serif;
-}
 /****************MENU VERTICAL FIJO*****************************/
 header {
     background: var(--lila1);
@@ -39,7 +10,6 @@ header {
     display: flex;
     align-items: center;
 }
-
 
 header nav{
 
@@ -97,6 +67,7 @@ header nav ul li .children li {
  /*    overflow: hidden; */
     border-bottom: 1px solid var(--amarillo2);
     display: none;
+    /* margin-left: 280px; */
 }
 /* header nav ul li .children  > a {
   background: var(--rosa1);
@@ -107,7 +78,9 @@ header nav ul li .children li a{
 	margin-bottom:-20px;
     width: 100%;
     background: var(--rosa1);
-    z-index: 9;
+    opacity: 0.8;
+  
+   /*  z-index: 9; */
 
 }
 header nav ul li .children li a:hover{
@@ -123,8 +96,6 @@ header nav ul li .children li a:hover{
 .buscar li{
     margin: auto;
     height: 100%;
-    
-    
 }
 .buscar input{
     font-size: 1.5rem;  
@@ -141,18 +112,16 @@ header nav ul li .children li a:hover{
     height: 70px;
     width: 20%;
 }
+/*div que se rellena con el resultado de la consulta*/
 .respuesta{
     padding-top: 2em;
     margin-left: 350px;
-     flex-wrap: wrap;
- position: absolute;
-  z-index: 10;
-    
+    flex-wrap: wrap;
+    position: absolute;
+    z-index: 50;
     display: flex;
-  
     background-color: var(--amarillo1) ;
     border-bottom: 1px solid var(--amarillo2);
- 
     opacity: .6;
 }
 .respuesta a{
@@ -169,7 +138,17 @@ header nav ul li .children li a:hover{
     text-transform: uppercase;
     border-radius: 10px;
 }
-
+.bienv{
+  
+    position: absolute;
+    z-index: 99;
+    top: 22px;
+    left: 15px;
+    height: 22px;
+    width: 200px;
+    color: var(--blanco1);
+    font-size: 1.6em;
+}
 /*aspa menu*/
  .abrirSidebarMenu  {
     transition: all 0.3s;
@@ -207,7 +186,7 @@ header nav ul li .children li a:hover{
 }  
 
 /*boton de abrir submenu + y -*/
-.abrirSubMenu {
+/* .abrirSubMenu {
     transition: all 0.3s;
     transform: translate(-50%,-50%) ;
     cursor: pointer;  
@@ -234,11 +213,12 @@ header nav ul li .children li a:hover{
 
 .activarVertical{
     opacity: 0;
-    margin-left: -30px; /*para que desaparezca hacia arriba*/
-}
+    margin-left: -30px;
+     para que desaparezca hacia arriba
+} **/
 /*********************************/
 
-/*************CONTENEDOR PRINCIAL*********/
+/*************CONTENEDOR PRINCIAL. PARTE DERECHA *********/
 main{
     margin-left: 360px;
     min-height: 100vh;
@@ -343,7 +323,7 @@ main{
     transform: rotateY(180deg);
   }
   .carta{
-    width: 500px;
+    width: 400px;
     height: 720px;
     margin: .5em;
     padding: 1em ;
@@ -363,7 +343,7 @@ main{
   }
   /*cara*/
   .carta img{
-    width: 500px;
+    width: 400px;
     border-radius: 10px;
     object-fit: cover;
     display: block;
@@ -407,13 +387,19 @@ main{
   .tienda{
     color: var(--blanco2);
     margin: 1em;
+    width: 300px;
   }
   .sitio{
     margin-left: 1em;
+    width: 300px;
   }
 .map{
     height: 300px;
     width: 100%;
+  }
+/***********TINDA/MARCA*******************/
+  #cartaProd{
+     /*  z-index: 20; */
   }
 /*****************************************/
 /********ANIMACIONES INICIO*************/

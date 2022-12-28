@@ -8,6 +8,7 @@ class ErrorPage extends Controller {
     }
 
     public function index(){
+        $this->load_view("plantilla/header");
         $this->load_view("errorPage");
     }
 }

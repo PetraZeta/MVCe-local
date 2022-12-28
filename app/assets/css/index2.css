@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+:root{
+  --amarillo1:#fff0a9;
+  --amarillo2:#ffe567;
+  --lila:#da97ff;
+  --lila0:#CDC3DA;
+  --rosa:#ffd5ec;
+  --azul1:#66edff;
+  --azul2:#a3ffff;
+  --lila1:#77469a;
+  --rosa1:#ab368f;
+  --gris1:#32322f;
+  --gris2: #444440;
+  --blanco1:#f8f9fc;
+  --blanco2:#fefffc;
+  --fuente1: 'Zen Antique Soft', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+background-image: linear-gradient(to bottom right, var(--azul1), var(--lila));
+ font-family: 'Dosis', sans-serif;
+}
+/****************MENU SUPERIOR FIJO*****************************/
+#menuSuperior{
+    background-color: rgba(232, 177, 255, 0.5); 
+    transition: none 0s ease 0s; 
+   
+}
+#menuSuperior .container{
+    width: 100%;
+    
+    margin-right: 20px;
+}
+/****************MENU VERTICAL FIJO*****************************/
+header {
+    background: var(--lila1);
+    z-index: 100;
+    min-height: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    width: 360px;
+    display: flex;
+    align-items: center;
+    padding-top: 100px;
+}
+header nav ul{
+    list-style: none;
+    padding-left: 0;
+}
+header nav ul > li{
+    display: list-item;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+header nav ul li a:hover{
+    color: var(--rosa);
+    
+}
+header nav ul li a{
+    color: var(--blanco1);
+    display: block;
+    text-decoration: none;
+    padding: 1rem 3rem;
+}
+header nav ul li a img{
+    margin-right: 1.2rem;
+}
+
+header nav ul li .children li {
+    border-bottom: 1px solid var(--amarillo2);
+    background: var(--lila1);
+    
+}
+header nav ul li .children  > a {
+    background: var(--rosa1);
+    color: var(--blanco2);
+}
+
+header nav ul li .children li a:hover{
+    color: var(--amarillo1);
+    border-bottom: 1px solid var(--amarillo2);
+}
+
+.buscar {
+    margin: auto;
+    width: 90%;  
+/*     margin-top: 3rem;
+    height:80px; */
+
+}
+.buscar input{
+    font-size: 1.2rem;  
+    width:80%;
+    height:70px;
+    transition:.6s ease-out;
+    float: left;
+}
+#busqueda  {
+    cursor: pointer;
+    float: right;
+    height: 70px;
+    width: 20%;
+}
+ #collapseTree li div{
+    color: var(--blanco2);
+ }
+/*****quitar el blanco por defecto de acordeon*/
+.accordion-item{
+    background-color: var(--lila1) !important;
+}
+
+/*div que se rellena con el resultado de la consulta*/
+.respuesta{
+    z-index: 99;
+    width: 100%;
+    position: relative; 
+    opacity: 0.92;
+   
+ 
+}
+#cont_busqueda{
+display: block;
+}
+/*********************************/
+/*************CONTENEDOR PRINCIAL. Parte derecha*********/
+main{
+    margin-left: 360px;
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(to bottom right, var(--azul1), var(--lila));
+    color: var(--blanco2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/************************************************/
+/***********CATALOGO********************/
+#catalogo{
+    padding-top: 100px;
+    background-color: var(--lila0);
+}
+.cont_carta{
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;/*hacerlo responsive*/
+    justify-content: center;
+    background-color: var(--lila0);
+}
+.carta_padre{
+    margin: auto;
+    padding: 1.2rem;
+}
+.carta_padre:hover .carta{
+    transform: rotateY(180deg);
+}
+.carta{
+    width: 400px;
+    height: 720px;
+    margin: .5em;
+    padding: 1em ;
+    position: relative;
+    transform-style: preserve-3d;/*necesita estar tambien en ambas caras */
+    transition: all 600ms;
+}
+.carta_cara, .carta_cruz{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /*para que no se vea la parte de atras*/
+    transform-style: preserve-3d; 
+    border-radius: 10px;
+}
+/*cara*/
+.carta img{
+    width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+/*cruz*/
+.carta_cruz{
+    transform: rotateY(180deg);
+    background-color: var(--lila0);
+    margin: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.carta_cruz h1 {
+    color: var(--gris1); 
+}
+.carta_cruz p{
+    color: var(--gris1);
+    font-size: 1.1rem;
+    margin: 2em;
+}
+.carta_cruz h5{
+    color: var(--gris1);
+    font-size: 1.4rem;
+}
+.carta_cruz a{
+    padding: 1.2em;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+/****************************************/
+/***********TINDA/MARCA*******************/
+.tienda img{
+    width: 320px;
+}
+.tienda{
+    color: var(--blanco2);
+    margin: 1em;
+    width: 320px;
+}
+.sitio{
+    margin-left: 1em;
+    width: 300px;
+}
+.sitio_cuerpo p a{
+    width: 300px;
+}
+.map{
+    height: 320px;
+    width: 100%;
+}
+.telefono, .direccion, .web{
+    float: right;
+    color: var(--lila0);
+    font-size: 1.1rem;
+}
+/**********************************************************************/
+/**********FORMulario*******************/
+.form-check-input:checked {
+    background-color: var(--lila1);
+    border-color: var(--lila);
+}
+.form_control{
+    transition: none;
+}
+/**********MEDIA QUERYS***************************/
+@media screen and (max-width: 1024px) {
+    /****************MENU SUPERIOR FIJO*****************************/
+/*     #menuSuperior{
+        background-color: rgba(232, 177, 255, 0.5); 
+        transition: none 0s ease 0s; 
+    } */
+
+    header{
+        transform: translateX(-200px);
+        transition: transform 0.3s;
+        position: fixed;
+        height: 100vh;
+    }
+    main{
+        margin-left: 150px;
+    }
+     header nav ul > li{
+        margin-left: -20px;
+     } 
+     header nav ul li .children{
+        padding-left: 1rem;
+    }
+    header nav ul li a svg:first-of-type{
+        margin-left: 163px;
+        float: right;
+    }
+    header nav ul li a svg:nth-child(2){
+        float: right;
+        margin-left: 50px;
+       /*  margin-left: -30px; */
+    }
+    header nav ul li .children li a{
+        width: 190px;
+        font-size: 1.2rem;
+    }
+	header nav ul li ul {
+		display: block;
+        padding-right: 5px;
+       /*  margin-left: 200px; */
+	}
+    header nav ul li ul li {
+		display: block;
+        padding-right: 5px;
+        margin-left: 200px;
+	}
+    #collapseTree li div{
+        font-size: 1.2rem;
+        width: 170px;
+        margin: auto;
+    }
+
+    .buscar input{
+        transition:.6s ease-out;
+        width: 280px;
+        display: block;
+        padding-right: 0;
+    }
+     .caja{
+        display: none;
+    }
+    #tienda{
+        width: 500px;
+        transform: translateX(0);
+
+    }
+}
+@media screen and (max-width: 768px) {
+    /****************MENU SUPERIOR FIJO*****************************/
+    #menuSuperior{
+       width: 100%;
+    }
+    body {
+        padding-top:0px;
+    }
+    header{
+        transform: translateX(0px);
+        transition: transform 0.3s;
+        width: 100%;
+        height: auto;
+        position: absolute;
+        padding-top: 150px;
+        margin: auto;
+    }
+    header nav ul li a svg:first-of-type{
+        margin-left: 0px;
+        
+    }
+    main{
+        margin-top: 850px;
+    }
+    main #inicio{
+        display: none;
+    }
+    nav{
+        width: 90%;
+    }
+    .buscar{
+        width: 100%;
+    }
+    .carta_padre{
+        margin: auto;
+    }
+    main{
+       margin-left: 0;
+    } 
+    nav li a svg{
+        margin-right: 0;
+    }
+    /*desaparecer las animaciones de inicio*/
+    .caja{
+        display: none;
+    }
+    header nav ul li ul {
+        margin-left: 10px;
+	}
+	header nav ul li  {
+		width: 100%;
+        padding-right: 0;
+	}
+	header nav ul li .children {
+		width: 100%;
+	}
+	header nav ul li .children li {
+		margin-left:0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+	}
+    header nav ul li .children li div{
+        margin-top: 15px;
+        margin-bottom: 15px;
+	}
+    header nav ul li .children li a{
+		width: 100%;
+	}
+	header nav ul li .accordion .collapsed {
+		float: right;
+	}
+    .bienv{
+    display: none;
+    }
+    .tienda{
+        width: 100%;
+    }
+    .encabezado{
+        top: 50px;
+    }
+    #tienda{
+        width: 100%;
+    }
+}
+/*****************************************/
+/********ANIMACIONES INICIO*************/
+.caja{
+  max-width: 100vh;            
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+.burbujas{
+   top: 0;
+  right: 0;
+    width: 100%;
+    height: 100%;
+    position:absolute ;
+    z-index: 5;
+}
+.burbuja{
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, var(--azul1),var(--rosa1) );;
+    position: absolute;
+    opacity: .3;
+    overflow: hidden;
+}
+.burbuja:nth-child(odd){
+    background-image: linear-gradient(15deg, var(--lila0), var(--amarillo1)  );
+    animation: burbuja 30s linear infinite reverse; 
+}
+.burbuja:nth-child(even){
+    background-image: linear-gradient(15deg, var(--azul1),var(--amarillo1) ); 
+    animation: burbuja 20s linear infinite ; 
+}
+
+.burbuja:nth-child(1){
+    bottom: 450px;
+    width: 450px;
+    height:450px;
+    left: 30%;    
+    animation-delay: 1s;
+}
+.burbuja:nth-child(2){
+    bottom: 250px;
+    width: 250px;
+    height:250px;
+    left: 50%;
+    animation-delay: 6s;
+}
+.burbuja:nth-child(3){
+    bottom: 550px;
+    width: 550px;
+    height:550px;
+    left: 25%;
+    animation-delay: 11s;
+}
+.burbuja:nth-child(4){
+    bottom: 350px;
+    width: 350px;
+    height:350px;
+    left: 35%;
+    animation-delay: 16s;
+}
+.burbuja:nth-child(5){
+    bottom: 150px;
+    width: 150px;
+    height:150px;
+    left: 45%;    
+    animation-delay: 21s;
+}
+.burbuja:nth-child(6){
+    bottom: 50px;
+    width: 50px;
+    height:50px;
+    left: 55%;
+    animation-delay: 25s;
+}
+
+@keyframes burbuja {
+    0%{
+        bottom: 0px;
+        opacity: 0.2;
+    }
+    25%{
+        transform: translateX(-50px);
+         opacity: 0.4;
+    }
+    50%{
+        opacity: .5;
+        transform: translateX(50px); 
+        top: 0px;
+    }
+    75%{
+       transform: translateX(0px);
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateX(-50px);
+        bottom: 0px;
+    }
+    
+}

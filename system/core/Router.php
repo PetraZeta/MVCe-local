@@ -5,14 +5,14 @@ class Router {
     private $uri; // Array que contiene las diferentes partes de la URI
     private $controller;
     private $method;
-    private $param;
+    private $params;
 
     public function __construct()
     {
         $this->setUri();
         $this->setController();
         $this->setMethod();
-        $this->setParam();
+        $this->setParams();
     }
 
     ////////////// Metodos Setters
@@ -25,11 +25,14 @@ class Router {
     public function setMethod(){
         $this->method=empty($this->uri[3]) ? "index" : $this->uri[3];
     }
-    public function setParam(){
-        if ($_SERVER['REQUEST_METHOD']==="POST"){
+    public function setParams(){
+        /*  if ($_SERVER['REQUEST_METHOD']==="POST"){
             $this->param=$_POST;
         } else {
             $this->param=!isset($this->uri[4]) ? "" : $this->uri[4];
+        } */
+        for ($ind = 4; $ind < count($this->uri); $ind++) {
+            $this->params[] = !isset($this->uri[$ind]) ? "" : $this->uri[$ind];
         }
     }
     ///////////////// Metodos Getters
@@ -42,7 +45,7 @@ class Router {
     public function getMethod(){
         return $this->method;
     }
-    public function getParam(){
-        return $this->param;
+    public function getParams(){
+        return $this->params;
     }
 }

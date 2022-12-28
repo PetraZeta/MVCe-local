@@ -1,0 +1,217 @@
+/****************MENU VERTICAL FIJO*****************************/
+header {
+    padding-top: 50px;
+    background: var(--lila1);
+    z-index: 100;
+    min-height: 100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    width: 360px;
+    display: flex;
+    align-items: center;
+}
+header nav ul{
+    list-style: none;
+    padding-left: 0;
+}
+header nav ul > li{
+    display: list-item;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    font-size: 1.5rem;
+}
+header nav ul li a:hover{
+    color: var(--rosa);
+    
+}
+header nav ul li a{
+    color: var(--blanco1);
+    display: block;
+    text-decoration: none;
+    padding: 1rem 3rem;
+    
+}
+header nav ul li a svg{
+    margin-right: 1.2rem;
+}
+
+header nav ul li .children li {
+    border-bottom: 1px solid var(--amarillo2);
+    /* background: var(--lila0); */
+    
+}
+header nav ul li .children li a {
+    
+    font-size: 1.3rem;
+    margin-left: 50px;
+    
+}
+header nav ul li .children li div p , label , span{
+    
+    font-size: 1.3rem;
+    margin-left: 50px;
+    color: var(--blanco1);
+    
+}
+input .form-range{
+ width: 100px;
+}
+header nav ul li .children  > a {
+    background: var(--rosa1);
+    color: var(--blanco2);
+   
+}
+
+header nav ul li .children li a:hover{
+    color: var(--amarillo1);
+    border-bottom: 1px solid var(--amarillo2);
+}
+
+.buscar {
+    margin-left: 38px;
+    width: 90%;  
+    margin-top: 3rem;
+    height:80px;
+
+}
+.buscar input{
+    font-size: 1.2rem;  
+    width:80%;
+    height:70px;
+/*     transition:.6s ease-out; */
+    float: left;
+}
+#busqueda  {
+    cursor: pointer;
+    float: right;
+    height: 70px;
+    width: 20%;
+    position: absolute;
+}
+/*****quitar el blanco por defecto de acordeon*/
+.accordion-item{
+    background-color: var(--lila1) !important;
+}
+
+/*div que se rellena con el resultado de la consulta*/
+.respuesta{
+    z-index: 99;
+    width: 100%;
+    position: relative; 
+    opacity: 0.92;
+ 
+}
+#cont_busqueda{
+display: block;
+}
+/*Resolucion media(moviles, 360px y mas)*/
+@media (min-width:360px){
+   body {
+        padding-top:0px;
+    }
+    #menuSuperior{
+        margin-top: 0;
+    }
+    header{
+        
+        transform: translateX(0px);
+        transition: transform 0.3s;
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: auto;
+    }
+    #acordeon{
+        margin: auto;
+    }
+    #acordeon ul > li{
+        margin: auto;
+        padding: auto;
+        font-size: 1.1rem;
+    }
+    #acordeon ul > li a, svg{
+        font-size: 1.1rem;
+    }
+    #acordeon ul li .children li div p , label , span{
+    
+    font-size: 1.1rem;
+    
+    color: var(--blanco1);
+    
+}
+	#acordeon ul li .children {
+		width: 100%;
+	}
+    #acordeon ul li #collapseTree {
+		width: 80%;
+	}
+    .buscar{
+        margin-left: 0;
+        margin-top: 6px;
+        height: 40px;
+        width: 80%;
+    }
+}
+@media (min-width:576px){
+  #acordeon ul > li{
+      
+        font-size: 1.3rem;
+    }
+    #acordeon ul > li a, svg{
+        font-size: 1.3rem;
+    }
+    #acordeon ul li .children li div p , label , span{
+    
+    font-size: 1.3rem;
+    
+    color: var(--blanco1);
+    
+}
+}
+/*Resolucion media*/
+@media (min-width:768px){
+ header{
+        padding-top: 50px;
+        transform: translateX(-200px);
+        transition: transform 0.3s;
+    }
+    main{
+        margin-left: 150px;
+    }
+    header nav ul li a svg{
+        margin-left: 20px;
+        float: right;
+    }
+    header nav ul li .children li a{
+        width: 200px;
+    }
+	header nav ul li ul {
+		display: block;
+        padding-right: 5px;
+        margin-left: 200px;
+	} 
+}
+/*Resolucion grande*/
+@media (min-width:992px){
+header{
+        width: 360px;
+        transform: translateX(-200px);
+        transition: transform 0.3s;
+        margin-left:20px ;
+      
+    }
+        main{
+        margin-left: 150px;
+    }
+    nav li a svg{
+        float: right;
+        margin-right: 0;
+    }
+	header nav ul li a {
+		display: block;
+        padding-right: 0;
+	}
+   
+}

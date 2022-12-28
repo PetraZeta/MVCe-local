@@ -1,3 +1,19 @@
+Solucionado---> 
+enlaces a tienda y marca 
+separado el controlador Inicio de Usuario, 
+funciona el login y registro, validaciones y peticiones por ajax y jquery
+PROBLEMAS con el modal. El resultado de la búsqueda trae el nombre de los productos,  al hacer click en los p que contienen cada producto se debe abrir un modal, que viene con los datos del producto pero no se muestra, la clase modal de bootstrap aparece con display none pero no me funcionan los botones ni demás complementos. Todo se hace desde js y en la misma función, no se que es lo que puede estar fallando…
+Falta--->
+Validaciones de registro, recordar contraseña y olvido de contraseña.
+Botón favoritos con página para usuario donde muestre los favoritos, vista de sus datos y opción de modificar preferencias y datos de usuario, darse de baja.
+Pintar el modal de producto cuando se muestran las sugerencias, me da problemas el modal, tengo que darle una vuelta de como hacerlo…
+Botón de Agregar a favoritos desde carta producto
+Botón de visitar tienda/marca  desde cartal producto
+Botón de recibir novedades que hay en cada tienda (tengo que pensar cómo gestionarlo, tendría que modificar tablas) 
+Vista de página de administrador con un formulario que elabore mails y se manden a los usuarios que tengan activa las preferencias (implica añadir un campo de id de administrador en la tabla tienda)
+cambiar css de carta producto y validación de los checkbox
+
+
 ---------------------------------------------------------FASE2-------------------------------------------------------------------------------
 -  arreglado el tema de movimiento en los formularios, por más que mire el código no veía el porqué, por lo que indague  el problema sólo podía ser el desbordamiento, puse:overflow: hidden en el section que contiene el código y arreglado.
 - Cambio en función encargada de pintar el catálogo:, ahora se pinta en el catalogo.php y se llama desde el index del controlador Catalogo 

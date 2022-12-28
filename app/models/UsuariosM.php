@@ -24,21 +24,20 @@ class UsuariosM extends Model{
   
         return $this->fila();
     }
-    //comprobar si el correo existe en la bbdd TODO--> refactorizar con traer usuario
+    //comprobar si el correo existe en la bbdd, trae true o false
     function validarCorreo($email)
     {
-        /* var_dump($email); */
-        $sql = "SELECT * FROM usuario WHERE email='" . $email . "'";
+        $sql = "SELECT * FROM usuario WHERE email=:usuario";
         $this->consultar($sql);
+        $this->enlazar(":usuario", $email);
         $this->fila();
         
         return ($this->cuenta()== 0) ? true : false;
     }
     public function agregar($datos){
         if ($this->validarCorreo($datos["email"])) {
-            print_r($datos);
-            echo $datos['nombre'];
-            $sql = "INSERT INTO usuario VALUES(0,  :clave, :email ,:nombre,:novedades,:ofertas,:descuentos, 1)";
+            
+            $sql = "INSERT INTO usuario(clave, email ,nombre,novedades,ofertas,descuentos,rol) VALUES(:clave, :email ,:nombre,:novedades,:ofertas,:descuentos, :rol)";
             $this->consultar($sql);
             $this->enlazar(":clave", $datos["clave"]);
             $this->enlazar(":email", $datos["email"]);
@@ -46,13 +45,17 @@ class UsuariosM extends Model{
             $this->enlazar(":novedades", $datos["novedades"]);
             $this->enlazar(":ofertas", $datos["ofertas"]);
             $this->enlazar(":descuentos", $datos["descuentos"]);
+            $this->enlazar(":rol", $datos["rol"]);
 
             return $this->ejecutar();
-        }else{
-            echo "ya existe un usuario con ese correo, quiere loguearse? ha olvidado su contraseña? ..";
         }
-       
     }
- 
+//traer usuarios que tengan check en preferencias para mandar correo
+    public function traerUsuarios($tipo)
+    {
+        $sql = "SELECT * FROM usuario WHERE $tipo=1 ";
+        $this->consultar($sql);
 
+        return $this->resultado();
+    }
 }

@@ -9,8 +9,7 @@ $router=new Router();
 
 $controlador=$router->getController();
 $metodo=$router->getMethod();
-$parametro=$router->getParam();
-
+$parametros=$router->getParams();
 
 // Cmprobar que el controlador exista
 if (!is_file(PATH_CONTROLLERS.$controlador.".php")) $controlador="ErrorPage";
@@ -21,13 +20,12 @@ include PATH_CONTROLLERS.$controlador.".php";
 $miControlador=new $controlador();
 
 // Comprobar que esa clase controladora tenga el metodo que se quiere ejecutar
-
 if (!method_exists($controlador,$metodo)) $metodo="index";
 
 // Ejecutamos metodo de la URI
-if (empty($parametro)){
+if (empty($parametros)){
     $miControlador->$metodo();
 } else {
-    $miControlador->$metodo($parametro);
+    $miControlador->$metodo($parametros);
 }
 

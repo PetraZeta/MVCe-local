@@ -1,0 +1,351 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique+Soft&display=swap');
+:root{
+  --amarillo1:#fff0a9;
+  --amarillo2:#ffe567;
+  --lila:#da97ff;
+  --lila0:#CDC3DA;
+  --rosa:#ffd5ec;
+  --azul1:#66edff;
+  --azul2:#a3ffff;
+  --lila1:#77469a;
+  --rosa1:#ab368f;
+  --gris1:#32322f;
+  --gris2: #444440;
+  --blanco1:#f8f9fc;
+  --blanco2:#fefffc;
+  --fuente1: 'Zen Antique Soft', sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+background-image: linear-gradient(to bottom right, var(--azul1), var(--lila));
+ font-family: 'Dosis', sans-serif;
+}
+
+/*********************************/
+/*************CONTENEDOR PRINCIAL. Parte derecha*********/
+/*********Inicio*********************/
+#inicio .container-fluid h1{
+    font-size: 900%;
+}
+#inicio .container p{
+    font-size: 340%;
+}
+main{
+    margin-left: 360px;
+    min-height: 100vh;
+    text-align: center;
+    background: linear-gradient(to bottom right, var(--azul1), var(--lila));
+    color: var(--blanco2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/************************************************/
+.encabezado{
+    padding-left: 360px;
+    height: 70px;
+    
+}
+/***********CATALOGO********************/
+#catalogo{
+    background-color: var(--lila0);
+}
+.cont_carta{
+    max-width: 100%;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;/*hacerlo responsive*/
+    justify-content: center;
+    background-color: var(--lila0);
+}
+.carta_padre{
+    margin: auto;
+    padding: 1.2rem;
+}
+.carta_padre:hover .carta{
+    transform: rotateY(180deg);
+}
+.carta{
+    width: 400px;
+    height: 720px;
+    margin: .5em;
+    padding: 1em ;
+    position: relative;
+    transform-style: preserve-3d;/*necesita estar tambien en ambas caras */
+    transition: all 600ms;
+}
+.carta_cara, .carta_cruz{
+    width: 100%;
+    height: 80%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden; /*para que no se vea la parte de atras*/
+    transform-style: preserve-3d; 
+    border-radius: 10px;
+}
+/*cara*/
+.carta img{
+    width: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+/*cruz*/
+.carta_cruz{
+    transform: rotateY(180deg);
+    background-color: var(--lila0);
+    margin: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.carta_cruz h1 {
+    color: var(--gris1); 
+}
+.carta_cruz p{
+    color: var(--gris1);
+    font-size: 1.1rem;
+    margin: 2em;
+}
+.carta_cruz h5{
+    color: var(--gris1);
+    font-size: 1.4rem;
+}
+.carta_cruz a{
+    padding: 1.2em;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+/****************************************/
+/***********TINDA/MARCA*******************/
+img{
+    width: 320px;
+}
+.tienda{
+    color: var(--blanco2);
+    margin: 1em;
+    width: 320px;
+}
+.sitio{
+    margin-left: 1em;
+    width: 300px;
+}
+.sitio_cuerpo p a{
+    width: 300px;
+}
+.map{
+    height: 320px;
+    width: 100%;
+}
+.telefono, .direccion, .web{
+    float: right;
+    color: var(--lila0);
+    font-size: 1.1rem;
+}
+/**********************************************************************/
+/**********FORMulario*******************/
+.form-check-input:checked {
+    background-color: var(--lila1);
+    border-color: var(--lila);
+}
+.form_control{
+    transition: none;
+}
+/**********MEDIA QUERYS***************************/
+@media screen and (max-width: 1024px) {
+
+  
+    .encabezado{
+    padding-left: 0px;
+    }
+    .buscar{
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+    .buscar input{
+       
+        transition:.6s ease-out;
+        width: 280px;
+        display: block;
+        padding-right: 0;
+        
+    }
+}
+@media screen and (max-width: 768px) {
+
+    main #inicio{
+        display: none;
+    }
+   
+    .carta_padre{
+        margin: auto;
+    }
+    main{
+       margin-left: 0;
+    } 
+    nav li a svg{
+        margin-right: 0;
+    }
+    #inicio .container svg{
+        width: 200px ;
+    }
+       #inicio .container h1{
+        font-size: 400%;
+    }
+        #inicio .container p{
+        font-size: 150%;
+    }
+    /*desaparecer las animaciones de inicio*/
+    .caja{
+        display: none;
+    }
+    header nav ul li ul {
+        margin-left: 10px;
+	}
+	header nav ul li  {
+		width: 100%;
+        padding-right: 0;
+	}
+	header nav ul li .children {
+		width: 100%;
+	}
+	header nav ul li .children li a {
+		margin-left:0px;
+	}
+	header nav ul li .accordion .collapsed {
+		float: right;
+	}
+    .bienv{
+    display: none;
+    }
+
+
+
+
+  
+    
+}
+@media (min-width:360px){
+#inicio .container-fluid h1{
+    font-size: 400%;
+}
+#inicio .container p{
+    font-size: 140%;
+}
+#inicio .container svg{
+    font-size: 40%;
+}
+}
+
+/*****************************************/
+/********ANIMACIONES INICIO*************/
+.caja{
+  max-width: 100vh;            
+  max-height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+.burbujas{
+   top: 0;
+  right: 0;
+    width: 100%;
+    height: 100%;
+    position:absolute ;
+    z-index: 5;
+}
+.burbuja{
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, var(--azul1),var(--rosa1) );;
+    position: absolute;
+    opacity: .3;
+    overflow: hidden;
+}
+.burbuja:nth-child(odd){
+    background-image: linear-gradient(15deg, var(--lila0), var(--amarillo1)  );
+    animation: burbuja 30s linear infinite reverse; 
+}
+.burbuja:nth-child(even){
+    background-image: linear-gradient(15deg, var(--azul1),var(--amarillo1) ); 
+    animation: burbuja 20s linear infinite ; 
+}
+
+.burbuja:nth-child(1){
+    bottom: 450px;
+    width: 450px;
+    height:450px;
+    left: 30%;    
+    animation-delay: 1s;
+}
+.burbuja:nth-child(2){
+    bottom: 250px;
+    width: 250px;
+    height:250px;
+    left: 50%;
+    animation-delay: 6s;
+}
+.burbuja:nth-child(3){
+    bottom: 550px;
+    width: 550px;
+    height:550px;
+    left: 25%;
+    animation-delay: 11s;
+}
+.burbuja:nth-child(4){
+    bottom: 350px;
+    width: 350px;
+    height:350px;
+    left: 35%;
+    animation-delay: 16s;
+}
+.burbuja:nth-child(5){
+    bottom: 150px;
+    width: 150px;
+    height:150px;
+    left: 45%;    
+    animation-delay: 21s;
+}
+.burbuja:nth-child(6){
+    bottom: 50px;
+    width: 50px;
+    height:50px;
+    left: 55%;
+    animation-delay: 25s;
+}
+
+@keyframes burbuja {
+    0%{
+        bottom: 0px;
+        opacity: 0.2;
+    }
+    25%{
+        transform: translateX(-50px);
+         opacity: 0.4;
+    }
+    50%{
+        opacity: .5;
+        transform: translateX(50px); 
+        top: 0px;
+    }
+    75%{
+       transform: translateX(0px);
+        opacity: 0.3;
+    }
+    100%{
+        transform: translateX(-50px);
+        bottom: 0px;
+    }
+    
+}
+

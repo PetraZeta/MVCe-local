@@ -1,25 +1,54 @@
-/*   $(document).ready(function() {
-        // Llamada al controlador y metodo por AJAX para traerse todo el catalogo
-        $.post( BASE_URL+"Catalogo/pintarCatalogo", function(datos) {
-            // le pegamos los datos devueltos al div catalogo
-             $("#catalogo").html(datos);
-            
-        });
-    }); */
+//funciones asociadas a eventos de click de botones
 
-    // Interceptar evento click a tiendas o marcas de submenu y modificar el menu por la vista tienda
 
-    /*    const catalogo = document.querySelector('#catalogo');
-       cargaCatalogo();
+// pasa el id de usuario y de producto para añadir a la bbdd
+function sumaFavorito( productId) {
+    $.ajax({
+        url: BASE_URL + 'Usuario/agregarFavorito',
+        type: 'post',
+        data: {productId: productId},
+        success: function (data) {
+            //TODO..sumar 1 a prducto.favoritos 
+             if (data != 0) {
+                swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Producto agregado a favoritos',
+                showConfirmButton: false,
+                timer: 3000
+            });  
+            }
+            // si el usuario no esta loggeado
+            else {
+                swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: 'Este producto ya esta entre tus favoritos',
+                showConfirmButton: false,
+                timer: 3000
+            }); 
+            }
+        }
+    });
+}
 
-       function cargaCatalogo() {
-           document.addEventListener('DOMContentLoaded', cargarCatalogo);
-       }
-
-       function cargarCatalogo() {
-           const contedorCatalogo = document.createElement('div');
-           contedorCatalogo.classList.add('card', 'col-sm-4', 'm-2');
-           contedorCatalogo.innerHTML = ``
-    
-       catalogo.appendChild(contedorCatalogo);
-       } */
+// para eliminar un producto d favoritos
+function eliminarFavorito(productId) {
+    $.ajax({
+        url: BASE_URL + 'Usuario/eliminarFavorito',
+        type: 'post',
+        data: {productId: productId},
+        success: function (data) {
+            //refresca la pagina
+            //TODO..restar 1 a prducto.favoritos 
+                swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Producto eliminado de favoritos',
+                showConfirmButton: false,
+                timer: 3000
+            }); 
+           location.reload();
+        }
+    });
+}
