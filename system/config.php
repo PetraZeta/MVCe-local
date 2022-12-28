@@ -22,8 +22,4 @@ define("DB_PASS", "");
 define("DB_NAME", "elocal");
 
 ////PHPMailer
-define('PHPMAILER_HOST', 'smtp.gmail.com');
-define('PHPMAILER_USER', 'inesgarza01@gmail.com');
-define('PHPMAILER_PASS', 'ckcsosnwoaumknud');
-define('PHPMAILER_PORT', 587);
 
